@@ -31,7 +31,7 @@ variable "ami_filter" {
   description = "Map of filters to find AMI to use"
   type        = map(list(string))
   default = {
-    name = ["amzn2-ami-hvm-2.*-x86_64-ebs"]
+    name = ["al2023-ami-2023*-arm64"]
   }
 }
 
