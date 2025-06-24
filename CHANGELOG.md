@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.1.2](https://github.com/cytario/terraform-aws-bastion-host-ssm/compare/v1.1.1...v1.1.2) (2025-06-24)
+
+
+### Bug Fixes
+
+* switch to AL2023 and ARM AMI ([f30e175](https://github.com/cytario/terraform-aws-bastion-host-ssm/commit/f30e175141200beabfa0e23ce550c75ac6b99406))
+
 ## [1.1.1](https://github.com/cytario/terraform-aws-bastion-host-ssm/compare/v1.1.0...v1.1.1) (2025-06-24)
 
 
