@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.2.0](https://github.com/cytario/terraform-aws-bastion-host-ssm/compare/v1.1.2...v1.2.0) (2025-06-24)
+
+
+### Features
+
+* add vpc_id input and deploy security group in vpc ([e9f62a9](https://github.com/cytario/terraform-aws-bastion-host-ssm/commit/e9f62a9498cb6ac042f1d817e49d5c33dad43911))
+
 ## [1.1.2](https://github.com/cytario/terraform-aws-bastion-host-ssm/compare/v1.1.1...v1.1.2) (2025-06-24)
 
 
