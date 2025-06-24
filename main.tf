@@ -69,23 +69,23 @@ resource "aws_security_group" "this" {
 }
 
 resource "aws_vpc_security_group_egress_rule" "user_defined_ports_ipv4" {
-  for_each          = toset(var.open_egress_ports)
+  for_each          = { for idx, port in var.open_egress_ports : idx => port }
   security_group_id = aws_security_group.this.id
-  description       = format("all IPv4 hosts on port %s", each.key)
+  description       = format("all IPv4 hosts on port %s", each.value)
   ip_protocol       = "tcp"
-  from_port         = each.key
-  to_port           = each.key
+  from_port         = each.value
+  to_port           = each.value
   cidr_ipv4         = "0.0.0.0/0"
   tags              = var.tags
 }
 
 resource "aws_vpc_security_group_egress_rule" "user_defined_ports_ipv6" {
-  for_each          = toset(var.open_egress_ports)
+  for_each          = { for idx, port in var.open_egress_ports : idx => port }
   security_group_id = aws_security_group.this.id
-  description       = format("all IPv6 hosts on port %s", each.key)
+  description       = format("all IPv6 hosts on port %s", each.value)
   ip_protocol       = "tcp"
-  from_port         = each.key
-  to_port           = each.key
+  from_port         = each.value
+  to_port           = each.value
   cidr_ipv6         = "::/0"
   tags              = var.tags
 }
