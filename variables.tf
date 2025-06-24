@@ -12,7 +12,12 @@ variable "enabled" {
 
 variable "subnet" {
   type        = string
-  description = "AWS subnet ID to deploy instance to"
+  description = "AWS subnet ID to deploy instance to (needs to be in vpc provided as vpc_id)"
+}
+
+variable "vpc_id" {
+  type        = string
+  description = "AWS VPC ID to create security group in"
 }
 
 variable "instance_type" {

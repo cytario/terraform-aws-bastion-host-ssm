@@ -66,6 +66,7 @@ data "aws_iam_policy_document" "this" {
 resource "aws_security_group" "this" {
   name_prefix = "${var.prefix}-bastion-host-sg"
   description = "Bastion Host (SSM only) security group that should only allow egress"
+  vpc_id      = var.vpc_id
 }
 
 resource "aws_vpc_security_group_egress_rule" "user_defined_ports_ipv4" {
