@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.1.1](https://github.com/cytario/terraform-aws-bastion-host-ssm/compare/v1.1.0...v1.1.1) (2025-06-24)
+
+
+### Bug Fixes
+
+* use for_each correctly for list(number) ([9e175c8](https://github.com/cytario/terraform-aws-bastion-host-ssm/commit/9e175c852caa4f232df1570e52be547f07b5d87f))
+
 ## [1.1.0](https://github.com/cytario/terraform-aws-bastion-host-ssm/compare/v1.0.0...v1.1.0) (2025-06-24)
 
 
