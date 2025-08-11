@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.2.1](https://github.com/cytario/terraform-aws-bastion-host-ssm/compare/v1.2.0...v1.2.1) (2025-08-11)
+
+
+### Bug Fixes
+
+* give bastion host EC2 instance a name tag ([971ce63](https://github.com/cytario/terraform-aws-bastion-host-ssm/commit/971ce63f0b135936849a06c0097451fbdb24d8c0))
+
 ## [1.2.0](https://github.com/cytario/terraform-aws-bastion-host-ssm/compare/v1.1.2...v1.2.0) (2025-06-24)
 
 
