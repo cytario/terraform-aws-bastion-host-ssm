@@ -26,6 +26,12 @@ variable "instance_type" {
   description = "Bastion instance type"
 }
 
+variable "instance_name" {
+  type        = string
+  default     = "Bastion Host"
+  description = "Name of the EC2 instance"
+}
+
 variable "open_egress_ports" {
   type        = list(number)
   default     = [5432] # postgresql

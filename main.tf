@@ -121,5 +121,8 @@ resource "aws_instance" "this" {
     http_endpoint = "enabled"
     http_tokens   = "required"
   }
-  tags = var.tags
+  tags = merge(
+    var.tags,
+    { Name = var.instance_name }
+  )
 }
