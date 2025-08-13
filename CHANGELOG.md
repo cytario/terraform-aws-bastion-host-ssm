@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.3.0](https://github.com/cytario/terraform-aws-bastion-host-ssm/compare/v1.2.1...v1.3.0) (2025-08-13)
+
+
+### Features
+
+* add security_group_id to outputs ([6aaee24](https://github.com/cytario/terraform-aws-bastion-host-ssm/commit/6aaee241ec8fd76df24f6bfea776a4a036325f8d))
+
 ## [1.2.1](https://github.com/cytario/terraform-aws-bastion-host-ssm/compare/v1.2.0...v1.2.1) (2025-08-11)
 
 
