@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.4.0](https://github.com/cytario/terraform-aws-bastion-host-ssm/compare/v1.3.0...v1.4.0) (2025-09-05)
+
+
+### Features
+
+* comprehensive security enhancements and better docs ([6e00277](https://github.com/cytario/terraform-aws-bastion-host-ssm/commit/6e002775b2657924fb0fa28a92d4cdbaa40204dd))
+
 ## [1.3.0](https://github.com/cytario/terraform-aws-bastion-host-ssm/compare/v1.2.1...v1.3.0) (2025-08-13)
 
 
