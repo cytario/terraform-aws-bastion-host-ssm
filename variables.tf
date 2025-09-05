@@ -89,3 +89,9 @@ variable "enable_ssm_session_logging" {
   description = "Enable CloudWatch logging for SSM sessions"
   default     = true
 }
+
+variable "ssm_session_logs_retention" {
+  type        = number
+  description = "Days to retain CloudWatch logs for SSM sessions"
+  default     = 365
+}

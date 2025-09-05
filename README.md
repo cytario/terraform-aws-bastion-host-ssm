@@ -26,14 +26,14 @@ Terraform module to create a simple and secure bastion host with SSM-only access
 ```hcl
 module "bastion" {
   source = "cytario/bastion-host-ssm/aws"
-  
+
   prefix                      = "prod"
   vpc_id                     = "vpc-xxxxxxxxx"
   subnet                     = "subnet-xxxxxxxxx"
   
   # Security enhancements
   kms_key_id                 = "arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012"
-  enable_termination_protection = true
+  enable_termination_protection = false
   enable_ssm_session_logging = true
   egress_cidr_blocks        = ["10.0.0.0/8", "172.16.0.0/16"]
   

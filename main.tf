@@ -50,9 +50,9 @@ resource "aws_iam_role_policy_attachment" "ec2_connect" {
 }
 
 resource "aws_iam_role_policy" "ssm_session_logging" {
-  count = var.enabled && var.enable_ssm_session_logging ? 1 : 0
-  name  = "${var.prefix}-bastion-ssm-logging-policy"
-  role  = aws_iam_role.this[0].id
+  count       = var.enabled && var.enable_ssm_session_logging ? 1 : 0
+  name_prefix = "${var.prefix}-bastion-ssm-logging-iam-policy"
+  role        = aws_iam_role.this[0].id
 
   policy = jsonencode({
     Version = "2012-10-17"
@@ -91,9 +91,9 @@ resource "aws_security_group" "this" {
   tags = merge(
     var.tags,
     {
-      Name        = "${var.prefix}-bastion-host-sg"
-      Purpose     = "bastion-host-security"
-      AccessType  = "ssm-only"
+      Name       = "${var.prefix}-bastion-host-sg"
+      Purpose    = "bastion-host-security"
+      AccessType = "ssm-only"
     }
   )
 }
@@ -150,14 +150,14 @@ resource "aws_vpc_security_group_egress_rule" "ssm" {
 resource "aws_cloudwatch_log_group" "ssm_session_logs" {
   count             = var.enabled && var.enable_ssm_session_logging ? 1 : 0
   name              = "/aws/ssm/${var.prefix}-bastion-host-sessions"
-  retention_in_days = 30
+  retention_in_days = var.ssm_session_logs_retention
   kms_key_id        = var.kms_key_id
   tags = merge(
     var.tags,
     {
-      Name        = "${var.prefix}-bastion-ssm-logs"
-      Purpose     = "security-audit"
-      LogType     = "ssm-sessions"
+      Name    = "${var.prefix}-bastion-ssm-logs"
+      Purpose = "security-audit"
+      LogType = "ssm-sessions"
     }
   )
 }
@@ -176,29 +176,29 @@ resource "aws_instance" "this" {
   root_block_device {
     delete_on_termination = true
     encrypted             = true
-    kms_key_id           = var.kms_key_id
+    kms_key_id            = var.kms_key_id
     tags = merge(
       var.tags,
       {
-        Name          = "${var.prefix}-bastion-root-volume"
-        Purpose       = "bastion-host"
-        Encrypted     = "true"
+        Name      = "${var.prefix}-bastion-root-volume"
+        Purpose   = "bastion-host"
+        Encrypted = "true"
       }
     )
   }
   metadata_options {
-    http_endpoint = "enabled"
-    http_tokens   = "required"
+    http_endpoint               = "enabled"
+    http_tokens                 = "required"
     http_put_response_hop_limit = 1
     instance_metadata_tags      = "enabled"
   }
   tags = merge(
     var.tags,
-    { 
-      Name           = var.instance_name
-      Purpose        = "bastion-host"
-      AccessMethod   = "ssm-only"
-      SecurityLevel  = "high"
+    {
+      Name          = var.instance_name
+      Purpose       = "bastion-host"
+      AccessMethod  = "ssm-only"
+      SecurityLevel = "high"
     }
   )
 }
