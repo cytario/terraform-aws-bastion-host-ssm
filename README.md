@@ -86,7 +86,7 @@ module "bastion" {
   kms_key_id                 = "arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012"
   enable_termination_protection = true
   enable_ssm_session_logging = true
-  ssm_session_logs_retention = 90
+  ssm_session_logs_retention = 365
   egress_cidr_blocks        = ["10.0.0.0/8", "172.16.0.0/16"]
   
   # Instance configuration
